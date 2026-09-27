@@ -433,7 +433,7 @@ calculateButton.addEventListener(
 
         // TOTAL POWER
         const totalPower =
-            fixedQuantity *
+            fixedLampQuantity *
             selectedLamp.power;
         resultTotalPower.textContent =
             totalPower.toFixed(2);
