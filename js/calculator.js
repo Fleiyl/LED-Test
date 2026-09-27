@@ -13,14 +13,17 @@ const lampFlux =
 const lampLength =
   document.getElementById("lampLength");
 
+
 const families = [
   ...new Set(
     lampData.map(lamp => lamp.family)
   )
 ];
 
+
 families.forEach(family => {
-  const option = 
+
+  const option =
     document.createElement("option");
 
   option.value = family;
@@ -28,7 +31,9 @@ families.forEach(family => {
   option.textContent = family;
 
   ledTypeSelect.appendChild(option);
+
 });
+
 
 ledTypeSelect.addEventListener(
     "change",
@@ -40,6 +45,14 @@ ledTypeSelect.addEventListener(
 
         lampModelSelect.innerHTML =
             '<option value="">Select Lamp Model</option>';
+
+
+        if (!selectedFamily) {
+
+            lampModelSelect.disabled = true;
+
+            return;
+        }
 
 
         const filteredLamps =
@@ -61,6 +74,9 @@ ledTypeSelect.addEventListener(
             lampModelSelect.appendChild(option);
 
         });
+
+
+        lampModelSelect.disabled = false;
 
     }
 );
