@@ -1,11 +1,4 @@
-// ========================================
-// MARINE LIGHTING CALCULATOR
-// ========================================
-
-
-// ========================================
-// 1. GET HTML ELEMENTS
-// ========================================
+// HTML ELEMENTS
 
 const ledTypeSelect =
     document.getElementById("ledType");
@@ -61,55 +54,33 @@ const resultArea =
     document.getElementById("resultArea");
 
 const resultMountingHeight =
-    document.getElementById(
-        "resultMountingHeight"
-    );
+    document.getElementById("resultMountingHeight");
 
 const resultRoomIndex =
-    document.getElementById(
-        "resultRoomIndex"
-    );
+    document.getElementById("resultRoomIndex");
 
 const resultEfficiency =
-    document.getElementById(
-        "resultEfficiency"
-    );
+    document.getElementById("resultEfficiency");
 
-const resultTotalLoss =
-    document.getElementById(
-        "resultTotalLoss"
-    );
+const resulEfficiencyArmature =
+    document.getElementById("resultEfficiencyArmature");
 
 const resultRequiredFlux =
-    document.getElementById(
-        "resultRequiredFlux"
-    );
+    document.getElementById("resultLightFlux");
 
 const resultCalculatedQuantity =
-    document.getElementById(
-        "resultCalculatedQuantity"
-    );
+    document.getElementById("resultCalculatedLampQuantity");
 
 const resultFixedQuantity =
-    document.getElementById(
-        "resultFixedQuantity"
-    );
+    document.getElementById("resultFixedLampQuantity");
 
 const resultActualIlluminance =
-    document.getElementById(
-        "resultActualIlluminance"
-    );
+    document.getElementById("resultActualIlluminance");
 
 const resultTotalPower =
-    document.getElementById(
-        "resultTotalPower"
-    );
+    document.getElementById("resultTotalPower");
 
-
-// ========================================
-// 2. CREATE LED TYPE DROPDOWN
-// ========================================
-
+// LED TYPE DROPDOWN
 const families = [
     ...new Set(
         lampData.map(
@@ -120,50 +91,35 @@ const families = [
 
 
 families.forEach(family => {
-
     const option =
         document.createElement("option");
-
     option.value = family;
-
     option.textContent = family;
-
     ledTypeSelect.appendChild(option);
-
 });
 
 
-// ========================================
-// 3. LED TYPE → LAMP MODEL
-// ========================================
-
+// LED TYPE → LAMP MODEL
 ledTypeSelect.addEventListener(
     "change",
     function () {
-
         const selectedFamily =
             this.value;
-
 
         // Reset Lamp Model
         lampModelSelect.innerHTML =
             '<option value="">Select Lamp Model</option>';
-
 
         // Reset specification
         lampPower.textContent = "-";
         lampFlux.textContent = "-";
         lampLength.textContent = "-";
 
-
         // Jika tidak memilih LED Type
         if (!selectedFamily) {
-
             lampModelSelect.disabled = true;
-
             return;
         }
-
 
         // Cari lampu berdasarkan family
         const filteredLamps =
@@ -172,77 +128,49 @@ ledTypeSelect.addEventListener(
                     lamp.family === selectedFamily
             );
 
-
         // Masukkan lampu ke dropdown
         filteredLamps.forEach(lamp => {
-
             const option =
                 document.createElement("option");
-
             option.value = lamp.id;
-
             option.textContent = lamp.name;
-
             lampModelSelect.appendChild(option);
-
         });
-
 
         // Aktifkan Lamp Model
         lampModelSelect.disabled = false;
-
     }
 );
 
-
-// ========================================
-// 4. LAMP MODEL → LAMP SPECIFICATION
-// ========================================
-
+// LAMP MODEL → LAMP SPECIFICATION
 lampModelSelect.addEventListener(
     "change",
     function () {
-
         const selectedId =
             this.value;
-
-
         const selectedLamp =
-            lampData.find(
-                lamp =>
-                    lamp.id == selectedId
-            );
+            lampData.find(lamp => lamp.id == selectedId);
 
 
         // Jika tidak ada lampu
         if (!selectedLamp) {
-
             lampPower.textContent = "-";
             lampFlux.textContent = "-";
             lampLength.textContent = "-";
-
             return;
         }
-
 
         // Tampilkan spesifikasi
         lampPower.textContent =
             selectedLamp.power;
-
         lampFlux.textContent =
             selectedLamp.flux;
-
         lampLength.textContent =
             selectedLamp.length;
-
     }
 );
 
-
-// ========================================
-// 5. CREATE REFLECTION DROPDOWN
-// ========================================
-
+// CREATE REFLECTION DROPDOWN
 const reflectionValues = [
     ...new Set(
         efficiencyData.map(
@@ -250,7 +178,6 @@ const reflectionValues = [
         )
     )
 ];
-
 
 // Ceiling
 const ceilingValues = [
@@ -262,20 +189,13 @@ const ceilingValues = [
     )
 ];
 
-
 ceilingValues.forEach(value => {
-
     const option =
         document.createElement("option");
-
     option.value = value;
-
     option.textContent = value;
-
     ceilingReflection.appendChild(option);
-
 });
-
 
 // Wall
 const wallValues = [
@@ -287,20 +207,13 @@ const wallValues = [
     )
 ];
 
-
 wallValues.forEach(value => {
-
     const option =
         document.createElement("option");
-
     option.value = value;
-
     option.textContent = value;
-
     wallReflection.appendChild(option);
-
 });
-
 
 // Floor
 const floorValues = [
@@ -312,54 +225,32 @@ const floorValues = [
     )
 ];
 
-
 floorValues.forEach(value => {
-
     const option =
         document.createElement("option");
-
     option.value = value;
-
     option.textContent = value;
-
     floorReflection.appendChild(option);
-
 });
 
-
-// ========================================
 // 6. CALCULATE
-// ========================================
-
 calculateButton.addEventListener(
     "click",
     function () {
 
-
-        // ====================================
         // GET INPUT VALUES
-        // ====================================
-
         const L =
             Number(roomLength.value);
-
         const W =
             Number(roomWidth.value);
-
         const Hc =
             Number(ceilingHeight.value);
-
         const Hw =
             Number(workingHeight.value);
-
         const E =
             Number(targetIlluminance.value);
 
-
-        // ====================================
         // VALIDATION
-        // ====================================
-
         if (
             !lampModelSelect.value ||
             !L ||
@@ -368,93 +259,52 @@ calculateButton.addEventListener(
             !Hw ||
             !E
         ) {
-
-            alert(
-                "Please complete all required inputs."
-            );
-
+            alert("Please complete all required inputs.");
             return;
         }
-
 
         if (Hc <= Hw) {
-
-            alert(
-                "Ceiling Height must be greater than Working Height."
-            );
-
+            alert("Ceiling Height must be greater than Working Height.");
             return;
         }
 
-
-        // ====================================
         // GET SELECTED LAMP
-        // ====================================
-
         const selectedId =
             lampModelSelect.value;
-
-
         const selectedLamp =
             lampData.find(
                 lamp =>
                     lamp.id == selectedId
             );
 
-
         if (!selectedLamp) {
-
-            alert(
-                "Lamp model not found."
-            );
-
+            alert("Lamp model not found.");
             return;
         }
 
-
-        // ====================================
         // AREA
-        // ====================================
-
         const area =
             L * W;
-
-
         resultArea.textContent =
             area.toFixed(2);
-
-
-        // ====================================
+        
         // MOUNTING HEIGHT
-        // ====================================
-
         const mountingHeight =
             Hc - Hw;
-
-
         resultMountingHeight.textContent =
             mountingHeight.toFixed(2);
 
-
-        // ====================================
         // ROOM INDEX
-        // ====================================
-
         const roomIndex =
             area /
             (
                 mountingHeight *
                 (L + W)
             );
-
-
         resultRoomIndex.textContent =
             roomIndex.toFixed(2);
 
-
-        // ====================================
         // GET REFLECTION
-        // ====================================
 
         const selectedReflection =
             ceilingReflection.value +
@@ -463,11 +313,7 @@ calculateButton.addEventListener(
             "/" +
             floorReflection.value;
 
-
-        // ====================================
         // FIND EFFICIENCY DATA
-        // ====================================
-
         const efficiencyRows =
             efficiencyData.filter(
                 data =>
@@ -476,31 +322,18 @@ calculateButton.addEventListener(
                     data.reflection === selectedReflection
             );
 
-
         if (efficiencyRows.length === 0) {
-
-            alert(
-                "Efficiency data not found for the selected lamp and reflection factor."
-            );
-
+            alert("Efficiency data not found for the selected lamp and reflection factor.");
             return;
         }
 
-
-        // ====================================
         // SORT ROOM INDEX
-        // ====================================
-
         efficiencyRows.sort(
             (a, b) =>
                 a.roomIndex - b.roomIndex
         );
 
-
-        // ====================================
         // FIND LOWER POINT
-        // ====================================
-
         const lower =
             efficiencyRows
                 .filter(
@@ -509,11 +342,7 @@ calculateButton.addEventListener(
                 )
                 .pop();
 
-
-        // ====================================
         // FIND UPPER POINT
-        // ====================================
-
         const upper =
             efficiencyRows
                 .find(
@@ -521,20 +350,13 @@ calculateButton.addEventListener(
                         row.roomIndex >= roomIndex
                 );
 
-
-        // ====================================
         // INTERPOLATION
-        // ====================================
-
         let efficiency;
-
-
         if (
             lower &&
             upper &&
             lower.roomIndex !== upper.roomIndex
         ) {
-
             efficiency =
                 lower.efficiency +
                 (
@@ -547,104 +369,58 @@ calculateButton.addEventListener(
                 );
 
         } else if (lower) {
-
             efficiency =
                 lower.efficiency;
-
         } else if (upper) {
-
             efficiency =
                 upper.efficiency;
-
         } else {
-
-            alert(
-                "Room Index is outside the available efficiency data."
-            );
-
+            alert("Room Index is outside the available efficiency data.");
             return;
         }
 
-
-        // ====================================
         // CONVERT EFFICIENCY TO FACTOR
-        // ====================================
-
         const efficiencyFactor =
             efficiency / 100;
-
-
         resultEfficiency.textContent =
             efficiency.toFixed(2) + " %";
 
-
-        // ====================================
         // DIRT FACTOR
-        // ====================================
-
         const dirtFactor = 0.75;
 
-
-        // ====================================
-        // TOTAL LOSS / UTILIZATION FACTOR
-        // ====================================
-
+        // EFFICIENCY ARMATURE / UTILIZATION FACTOR
         const efficiencyarmature =
             efficiencyFactor *
             dirtFactor;
-
-
         resultEfficiencyArmature.textContent =
             efficiencyarmature.toFixed(4);
 
-
-        // ====================================
         // REQUIRED LIGHT FLUX
-        // ====================================
-
         const requiredFlux =
             (
                 E *
                 area
             ) /
             totalLoss;
-
-
         resultRequiredFlux.textContent =
             requiredFlux.toFixed(2);
 
-
-        // ====================================
         // CALCULATED LAMP QUANTITY
-        // ====================================
-
         const calculatedQuantity =
             requiredFlux /
             selectedLamp.flux;
-
-
         resultCalculatedQuantity.textContent =
             calculatedQuantity.toFixed(2);
 
-
-        // ====================================
         // FIXED LAMP QUANTITY
-        // ====================================
-
         const fixedQuantity =
             Math.ceil(
                 calculatedQuantity
             );
-
-
         resultFixedQuantity.textContent =
             fixedQuantity;
 
-
-        // ====================================
         // ACTUAL ILLUMINANCE
-        // ====================================
-
         const actualIlluminance =
             (
                 fixedQuantity *
@@ -652,23 +428,14 @@ calculateButton.addEventListener(
                 totalLoss
             ) /
             area;
-
-
         resultActualIlluminance.textContent =
             actualIlluminance.toFixed(2);
 
-
-        // ====================================
         // TOTAL POWER
-        // ====================================
-
         const totalPower =
             fixedQuantity *
             selectedLamp.power;
-
-
         resultTotalPower.textContent =
             totalPower.toFixed(2);
-
     }
 );
