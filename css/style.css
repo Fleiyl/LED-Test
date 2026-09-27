@@ -8,12 +8,7 @@ body {
     margin: 0;
     padding: 30px 15px;
     font-family: "Ubuntu", sans-serif;
-    background-image:
-        linear-gradient(
-            rgba(10, 20, 30, 0.75),
-            rgba(10, 20, 30, 0.85)
-        ),
-        url(img/Backgorund Calc.jpg);
+    background-image: url(img/Backgorund Calc.jpg);
     background-size: cover;
 	background-repeat: no-repeat;
     background-position: center;
