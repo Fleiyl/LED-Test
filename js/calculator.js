@@ -589,13 +589,13 @@ calculateButton.addEventListener(
         // TOTAL LOSS / UTILIZATION FACTOR
         // ====================================
 
-        const totalLoss =
+        const efficiencyarmature =
             efficiencyFactor *
             dirtFactor;
 
 
-        resultTotalLoss.textContent =
-            totalLoss.toFixed(4);
+        resultEfficiencyArmature.textContent =
+            efficiencyarmature.toFixed(4);
 
 
         // ====================================
