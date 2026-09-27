@@ -65,13 +65,13 @@ const resultEfficiency =
 const resulEfficiencyArmature =
     document.getElementById("resultEfficiencyArmature");
 
-const resultRequiredFlux =
+const resultLightFlux =
     document.getElementById("resultLightFlux");
 
-const resultCalculatedQuantity =
+const resultCalculatedLampQuantity =
     document.getElementById("resultCalculatedLampQuantity");
 
-const resultFixedQuantity =
+const resultFixedLampQuantity =
     document.getElementById("resultFixedLampQuantity");
 
 const resultActualIlluminance =
@@ -402,30 +402,30 @@ calculateButton.addEventListener(
                 area
             ) /
             efficiencyArmature;
-        resultRequiredFlux.textContent =
-            requiredFlux.toFixed(2);
+        resultLightFlux.textContent =
+            lightFlux.toFixed(2);
 
         // CALCULATED LAMP QUANTITY
-        const calculatedQuantity =
-            requiredFlux /
+        const calculatedLampQuantity =
+            lightFlux /
             selectedLamp.flux;
-        resultCalculatedQuantity.textContent =
-            calculatedQuantity.toFixed(2);
+        resultCalculatedLampQuantity.textContent =
+            calculatedLampQuantity.toFixed(2);
 
         // FIXED LAMP QUANTITY
-        const fixedQuantity =
+        const fixedLampQuantity =
             Math.ceil(
-                calculatedQuantity
+                calculatedLampQuantity
             );
-        resultFixedQuantity.textContent =
-            fixedQuantity;
+        resultFixedLampQuantity.textContent =
+            fixedLampQuantity;
 
         // ACTUAL ILLUMINANCE
         const actualIlluminance =
             (
-                fixedQuantity *
+                fixedLampQuantity *
                 selectedLamp.flux *
-                totalLoss
+                efficiencyArmature
             ) /
             area;
         resultActualIlluminance.textContent =
