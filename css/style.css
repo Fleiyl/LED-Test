@@ -1,216 +1,204 @@
-```css
 /* GENERAL */
-* {
-    box-sizing: border-box;
-    padding: 0px;
-    margin: auto;
-    font-family: "ubuntu", sans-serif;
-    border-radius: 10px;
-}
 
-@media (min-width: 500px) and (max-width: 1024px) {
-    * {
-        box-sizing: border-box;
-        margin: 16px;
-        padding: 10px;
-    }
+{
+    box-sizing: border-box;
 }
 
 body {
-    background-image: url(img/Background Calc.jpg);
-    background-repeat: no-repeat;
-	background-size: cover;
-	background-psoition: center;
-    background-color: #afc0c9c2;
-    background-clip: content-box;
-    padding: 10px;
-    margin: 16px;
-    display: flex;
-    flex-direction: column;
-    flex-flow: column;
-    box-sizing: border-box;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.3em;
-    line-height: 1.5em;
-    height: fit-content;
+    margin: 0;
+    padding: 30px 15px;
+    font-family: "Ubuntu", sans-serif;
+    background-image:
+        linear-gradient(
+            rgba(10, 20, 30, 0.75),
+            rgba(10, 20, 30, 0.85)
+        ),
+        url(img/Backgorund Calc.jpg);
+    background-size: cover;
+	background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    color: #afc0c9c2;
 }
 
-.container {
-    width: fit-content;
-    height: fit-content;
-    background-color: #000000b6;
-    box-shadow: rgba(0, 0, 0, .24) 0px 3px 8px;
-    padding: 20px;
-    color: antiquewhite;
-}
 
-.container h1 {
-    padding: 13px;
-}
+/* MAIN CONTAINER */
 
-.container h2 {
-	padding: 10px;
-}
-
-/* FORM */
-form {
-    margin: 16px;
-    border: none;
-    outline: none;
-}
-
-#Lam {
-    padding-top: 15px;
-    margin: 16px;
-    border: none;
-    outline: none;
-    box-shadow: rgba(0, 0, 0, 0.848) 0px 5px 10px;
-}
-
-#incandescent-power {
-    padding-top: 15px;
-    padding-bottom: 10px;
-    margin: 16px;
-    border: none;
-    outline: none;
-    box-shadow: rgba(0, 0, 0, 0.848) 0px 5px 10px;
-}
-
-#halogen-power {
-    padding-top: 15px;
-    padding-bottom: 10px;
-    margin: 16px;
-    border: none;
-    outline: none;
-    box-shadow: rgba(0, 0, 0, 0.848) 0px 5px 10px;
-}
-
-#lfc-power {
-    padding-top: 15px;
-    padding-bottom: 10px;
-    margin: 16px;
-    border: none;
-    outline: none;
-    box-shadow: rgba(0, 0, 0, 0.848) 0px 5px 10px;
-}
-
-#led-power {
-    padding-top: 15px;
-    padding-bottom: 10px;
-    margin: 16px;
-    border: none;
-    outline: none;
-    box-shadow: rgba(0, 0, 0, 0.848) 0px 5px 10px;
-}
-
-/* INPUTS */
-
-form .Lamp Selection {
-    padding: 5px;
-    outline: none;
-    border: none;
-}
-
-form .lighting {
-    padding: 5px;
-    outline: none;
-    border: none;
-}
-
-form .dimension {
-    padding: 5px;
-    outline: none;
-    border: none;
-}
-
-/* ON-SCREEN MESSAGES */
-
-#warning {
-    padding: 0 5px;
-    background-color: rgba(95, 106, 255, 0.288);
-    width: fit-content;
-    margin: auto 30px;
-    color: rgb(255, 255, 255);
-    font-size: small;
-    font-weight: bolder;
-    transform: translateY(-25px);
+body > h1 {
+    width: min(900px, 100%);
+    margin: 0 auto 25px;
     text-align: center;
+    font-size: 2rem;
+    letter-spacing: 1px;
 }
 
-#warning2 {
-    padding: 0 5px;
-    background-color: rgba(255, 255, 255, 0.603);
-    width: fit-content;
-    margin: 10px auto;
-    color: black;
-    font-size: small;
-    font-weight: bolder;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+
+/* SECTION */
+
+section {
+    width: min(900px, 100%);
+    margin: 20px auto;
+    padding: 25px;
+    background-color: rgba(10, 15, 20, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.35);
 }
 
-#result {
-    padding: 5px;
-    background-color: rgba(135, 228, 170, 0.603);
-    color: black;
-    font-size: smaller;
-    font-weight: bolder;
-    width: fit-content;
-    margin-bottom: 25px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    margin: 20px;
+
+/* SECTION TITLE */
+
+section h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.2);
+    font-size: 1.2rem;
 }
 
-#final {
-    padding: 5px;
-    background-color: rgba(135, 228, 170, 0.603);
-    color: black;
-    font-size: smaller;
-    font-weight: bolder;
-    width: fit-content;
-    margin-bottom: 25px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    margin: 0 auto;
-}
 
-/* BUTTON */
+/* LABEL */
 
-form button {
-    padding: 5px;
-    font-weight: bolder;
-}
-
-.btn {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-}
-
-form button:hover {
-    cursor: pointer;
-    transition: 0.2s;
-    transform: scale(1.05);
-}
-
-.help {
-    font-size: small;
-    padding: 2px 4px;
-    margin-top: 10px;
-    background-color: rgba(6, 6, 143, 0.644);
-    color: #fff;
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
     font-weight: bold;
 }
 
-.hide {
-    display: none;
+
+/* INPUT & SELECT */
+
+input,
+select {
+    width: 100%;
+    padding: 11px 12px;
+    background-color: #ffffff;
+    color: #111111;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
 }
-```
+
+input:focus,
+select:focus {
+    outline: 2px solid #5da9e9;
+}
+
+
+/* UNIT */
+
+section > span {
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 0.85rem;
+}
+
+/* LAMP SPECIFICATION */
+
+section p {
+    margin: 10px 0;
+    font-size: 0.95rem;
+}
+
+section p span {
+    font-weight: bold;
+}
+
+/* CALCULATE BUTTON */
+#calculateButton {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 25px;
+    padding: 14px;
+
+    background-color: #ffffff;
+    color: #111111;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+#calculateButton:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+#calculateButton:active {
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   RESULT SECTION
+======================================== */
+
+section:last-of-type {
+    background-color: rgba(235, 240, 243, 0.95);
+
+    color: #111111;
+}
+
+
+/* ========================================
+   RESULT VALUES
+======================================== */
+
+#resultArea,
+#resultMountingHeight,
+#resultRoomIndex,
+#resultEfficiency,
+#resultEfficienyArmature,
+#resultLightFlux,
+#resultCalculatedLampQuantity,
+#resultFixedLampQuantity,
+#resultActualIlluminance,
+#resultTotalPower {
+    font-weight: bold;
+}
+
+
+/* ========================================
+   IMPORTANT RESULT
+======================================== */
+
+#resultFixedLampQuantity {
+    font-size: 1.4rem;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px 10px;
+    }
+
+    body > h1 {
+        font-size: 1.5rem;
+    }
+
+    section {
+        padding: 18px;
+    }
+
+}
