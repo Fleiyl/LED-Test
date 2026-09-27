@@ -23,7 +23,7 @@ families.forEach(family => {
   const option = 
     document.createElement("option");
 
-  optiom.value = family;
+  option.value = family;
 
   option.textContent = family;
 
