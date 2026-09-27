@@ -389,19 +389,19 @@ calculateButton.addEventListener(
         const dirtFactor = 0.75;
 
         // EFFICIENCY ARMATURE / UTILIZATION FACTOR
-        const efficiencyarmature =
+        const efficiencyArmature =
             efficiencyFactor *
             dirtFactor;
         resultEfficiencyArmature.textContent =
-            efficiencyarmature.toFixed(4);
+            efficiencyArmature.toFixed(4);
 
         // REQUIRED LIGHT FLUX
-        const requiredFlux =
+        const lightFlux =
             (
                 E *
                 area
             ) /
-            totalLoss;
+            efficiencyArmature;
         resultRequiredFlux.textContent =
             requiredFlux.toFixed(2);
 
