@@ -16,8 +16,10 @@
 }
 
 body {
-    background-image: url("https://s3.a8se.com/storage/conteudo/6/34547/20130909100745_522dc8219b343.jpg");
+    background-image: url("img/Background.jpeg");
     background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
     background-color: #afc0c9c2;
     background-clip: content-box;
     padding: 10px;
