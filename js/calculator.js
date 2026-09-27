@@ -29,3 +29,38 @@ families.forEach(family => {
 
   ledTypeSelect.appendChild(option);
 });
+
+ledTypeSelect.addEventListener(
+    "change",
+    function () {
+
+        const selectedFamily =
+            this.value;
+
+
+        lampModelSelect.innerHTML =
+            '<option value="">Select Lamp Model</option>';
+
+
+        const filteredLamps =
+            lampData.filter(
+                lamp =>
+                    lamp.family === selectedFamily
+            );
+
+
+        filteredLamps.forEach(lamp => {
+
+            const option =
+                document.createElement("option");
+
+            option.value = lamp.id;
+
+            option.textContent = lamp.name;
+
+            lampModelSelect.appendChild(option);
+
+        });
+
+    }
+);
