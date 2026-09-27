@@ -30,7 +30,4 @@ families.forEach(family => {
   ledTypeSelect.appendChild(option);
 });
 
-<script src="data/lamp_data.js"></script>
-<script src="data/eff_data.js"></script>
-<script src="js/calculator.js"></script>
                           
