@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name"viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design 4 LED Calculator
+    </title>
+  </head>
+
+  <body>
+    <h1>Prepared by: Paramarta-P63</h1>
+    
+  <section> 
+    <h2>Lamp Selection</h2>
+          <label for="ledType">LED Type</label>
+          <select id="ledType">
+            <option value="">Select LED Type</option>
+          </select>
+
+          <label for="lampModel">Lamp Model</label>
+          <select id="lampModel" disabled>
+            <option value="">Select Lamp Model</option>
+          </select>
+
+          <p>Power: <span id="lampPower">-</span> W</p>
+          <p>Flux: <span id="lampFlux">-</span> lumen</p>
+          <p>Length: <span id="lampLength">-</span> mm</p>
+  </section>
+
+  <section>
+    <h2>Room Dimension</h2>
+          <label for="roomLength">Length</label>
+          <input
+            type="number"
+            id="roomLength"
+            step="0.01"
+            placeholder="Enter Length"
+          >
+          <span>m</span>
+          <label for="roomWidth">Width</label>
+          <input
+            type="number"
+            id="roomWidth"
+            step="0.01"
+            placeholder="Enter Width"
+          >
+          <span>m</span>
+          <label for="ceilingHeight">Ceiling Height</label>
+          <input
+            type="number"
+            id="ceilingHeight"
+            step="0.01"
+            placeholder="Enter Ceiling Height"
+          >
+          <span>m</span>
+          <label for="workingHeight">Working Height</label>
+          <input
+            type="number"
+            id="workingHeight"
+            step="0.01"
+            placeholder="Enter Working Height"
+          >
+          <span>m</span>
+  </section>
+
+  <section>
+    <h2>Reflection Factor</h2>
+          <label for="ceilingReflection">Ceiling</label>
+          <select id="ceilingReflection">
+            <option value="">Select Ceiling Reflection</option>
+          </select>
+
+          <label for="wallReflection">Wall</label>
+          <select id="wallReflection">
+            <option value="">Select Wall Reflection</option>
+          </select>
+
+          <label for="floorReflection">Floor</label>
+          <select id="floorReflection">
+            <option value="">Select Floor Reflection</option>
+          </select>
+  </section>
+
+  <section>
+     <h2>Illuminance</h2>
+          <label for="targetIlluminance">
+            Target Illuminance
+          </label>
+          <input
+            type="number"
+            id="targetIlluminance"
+            step="1"
+            placeholder="Enter Illuminance"
+          >
+          <span>lux</span>
+  
+          <button id="calculateButton">
+            Calculate
+          </button>
+  </section>
+
+  <section>
+    <h2>Calculation Result</h2>
+          <p>
+            Area:
+            <span id="resultArea">-</span> m²
+          </p>
+          <p>
+            Mounting Height:
+            <span id="resultMountingHeight">-</span> m
+          </p>
+          <p>
+            Room Index:
+            <span id="resultRoomIndex">-</span>
+          </p>
+          <p>
+            Efficiency:
+            <span id="resultEfficiency">-</span>
+          </p>
+          <p>
+            Efficiency Armature:
+            <span id="resultEfficiencyArmature">-</span>
+          </p>
+          <p>
+            Light Flux:
+            <span id="resultLightFlux">-</span> lumen
+          </p>
+          <p>
+            Calculated Lamp Quantity:
+            <span id="resultCalculatedLampQuantity">-</span>
+          </p>
+          <p>
+            Fixed Lamp Quantity:
+            <span id="resultFixedLampQuantity">-</span>
+          </p>
+          <p>
+            Actual Illuminance:
+            <span id="resultActualIlluminance">-</span>
+          </p>
+          <p>
+            Total Power:
+            <span id="resultTotalPower">-</span>
+          </p>
+  </section>
+    
+  </body>
+</html>
