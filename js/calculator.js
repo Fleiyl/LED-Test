@@ -29,5 +29,3 @@ families.forEach(family => {
 
   ledTypeSelect.appendChild(option);
 });
-
-                          
