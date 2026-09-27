@@ -136,7 +136,7 @@ const lampData =
       flux: 3500
     },
     {
-      id: 15,
+      id: 16,
       family: "MAX G2 MARINE",
       name: "MIRZ54-1200 (M) G2 5000 HF 840 TW M20 FR",
 
